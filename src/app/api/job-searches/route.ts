@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
   const params = parseJobSearchParams(body);
   if (!params) {
-    return NextResponse.json({ error: "Campos obrigatórios: company, role" }, { status: 400 });
+    return NextResponse.json({ error: "Required fields: company, role" }, { status: 400 });
   }
   return NextResponse.json(await createJobSearch(params));
 }

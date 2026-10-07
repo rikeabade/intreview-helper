@@ -20,7 +20,7 @@ export async function GET(
   const { company, role } = await params;
   const detail = await getTargetRole(company, role);
   if (!detail) {
-    return NextResponse.json({ error: "Target Role não encontrado" }, { status: 404 });
+    return NextResponse.json({ error: "Target Role not found" }, { status: 404 });
   }
   return NextResponse.json(detail);
 }
@@ -32,7 +32,7 @@ export async function DELETE(
   const { company, role } = await params;
   const deleted = await deleteTargetRole(company, role);
   if (!deleted) {
-    return NextResponse.json({ error: "Target Role não encontrado" }, { status: 404 });
+    return NextResponse.json({ error: "Target Role not found" }, { status: 404 });
   }
   return NextResponse.json({ ok: true });
 }
@@ -46,12 +46,12 @@ export async function PATCH(
   const { field, content } = body;
 
   if (!EDITABLE_FIELDS.includes(field) || typeof content !== "string") {
-    return NextResponse.json({ error: "Campo inválido." }, { status: 400 });
+    return NextResponse.json({ error: "Invalid field." }, { status: 400 });
   }
 
   const existing = await getTargetRole(company, role);
   if (!existing) {
-    return NextResponse.json({ error: "Target Role não encontrado" }, { status: 404 });
+    return NextResponse.json({ error: "Target Role not found" }, { status: 404 });
   }
 
   await updateTargetRoleField(company, role, field, content);

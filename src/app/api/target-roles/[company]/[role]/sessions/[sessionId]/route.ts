@@ -17,11 +17,11 @@ export async function GET(
 ) {
   const { company, role, sessionId } = await params;
   if (!isValidSlug(company) || !isValidSlug(role) || !isValidSessionId(sessionId)) {
-    return NextResponse.json({ error: "Sessão não encontrada" }, { status: 404 });
+    return NextResponse.json({ error: "Session not found" }, { status: 404 });
   }
   const state = await loadState(company, role, sessionId);
   if (!state) {
-    return NextResponse.json({ error: "Sessão não encontrada" }, { status: 404 });
+    return NextResponse.json({ error: "Session not found" }, { status: 404 });
   }
   return NextResponse.json({ state });
 }
@@ -35,14 +35,14 @@ export async function POST(
   const { company, role, sessionId } = await params;
   const detail = await getTargetRole(company, role);
   if (!detail) {
-    return NextResponse.json({ error: "Target Role não encontrado" }, { status: 404 });
+    return NextResponse.json({ error: "Target Role not found" }, { status: 404 });
   }
   if (!isValidSessionId(sessionId)) {
-    return NextResponse.json({ error: "Sessão não encontrada" }, { status: 404 });
+    return NextResponse.json({ error: "Session not found" }, { status: 404 });
   }
   let state = await loadState(company, role, sessionId);
   if (!state) {
-    return NextResponse.json({ error: "Sessão não encontrada" }, { status: 404 });
+    return NextResponse.json({ error: "Session not found" }, { status: 404 });
   }
 
   const body = await req.json();
@@ -82,7 +82,7 @@ export async function POST(
       return NextResponse.json({ state: result.state, filePath: result.filePath });
     }
 
-    return NextResponse.json({ error: `Ação desconhecida: ${action}` }, { status: 400 });
+    return NextResponse.json({ error: `Unknown action: ${action}` }, { status: 400 });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Erro desconhecido";
     return NextResponse.json({ error: message }, { status: 500 });

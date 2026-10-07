@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
   if (!companyName || !roleTitle || !jobDescription || !cv) {
     return NextResponse.json(
-      { error: "Campos obrigatórios: companyName, roleTitle, jobDescription, cv" },
+      { error: "Required fields: companyName, roleTitle, jobDescription, cv" },
       { status: 400 }
     );
   }

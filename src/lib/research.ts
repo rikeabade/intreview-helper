@@ -7,15 +7,19 @@ function L(locale: Locale, pt: string, en: string): string {
   return locale === "en" ? en : pt;
 }
 
-function buildQueries(meta: TargetRoleMeta): string[] {
+function buildQueries(meta: TargetRoleMeta, locale: Locale): string[] {
   const subject =
     meta.companyType === "consultancy" && meta.clientName
-      ? `${meta.companyName} (consultoria) cliente ${meta.clientName}`
+      ? L(
+          locale,
+          `${meta.companyName} (consultoria) cliente ${meta.clientName}`,
+          `${meta.companyName} (consultancy) client ${meta.clientName}`
+        )
       : meta.companyName;
 
   const queries = [
     `${subject} technical interview process experience`,
-    `${subject} entrevista técnica como é`,
+    L(locale, `${subject} entrevista técnica como é`, `${subject} technical interview tips`),
     `${subject} glassdoor interview questions`,
     `${subject} interview experience reddit`,
   ];
@@ -42,7 +46,7 @@ export async function runResearch(
     );
   }
 
-  const queries = buildQueries(meta);
+  const queries = buildQueries(meta, locale);
 
   const seen = new Set<string>();
   const sources: { title: string; url: string; content: string }[] = [];
@@ -53,7 +57,7 @@ export async function runResearch(
     try {
       results = await tavilySearch(query, 5);
     } catch (err) {
-      // Best-effort: se a busca falhar para uma query, seguimos com as demais.
+      // Best-effort: if one query fails, carry on with the others.
       console.error('Search failed for "%s":', query, err);
       lastError = err;
       continue;

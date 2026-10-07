@@ -1,56 +1,56 @@
-# Segurança e privacidade
+# Security and privacy
 
-## Modelo de ameaça
+## Threat model
 
-O Intreview é feito pra rodar **inteiramente na sua própria máquina**. Não existe backend compartilhado, conta de usuário ou servidor central — cada pessoa que clona este repositório roda sua própria instância isolada, com seu próprio Ollama local e sua própria chave da Tavily. Isso significa, por construção:
+Intreview is built to run **entirely on your own machine**. There is no shared backend, user account or central server: everyone who clones this repository runs their own isolated instance, with their own local Ollama and their own Tavily key. This means, by construction:
 
-- Seus dados (nome da empresa, Job Description, CV, Interview Purpose, Research Dossier, transcripts de entrevista) ficam em `data/`, que é ignorado pelo Git (veja `.gitignore`) e nunca deve ser commitado. Eles só saem da sua máquina pelo que está descrito em "O que sai da sua máquina".
-- Nenhum outro usuário do Intreview — mesmo clonando o mesmo repositório — tem acesso aos seus arquivos.
-- Não há telemetria nem analytics.
+- Your data (company name, job description, resume, Interview Purpose, Research Dossier, interview transcripts) stays in `data/`, which is ignored by Git (see `.gitignore`) and must never be committed. It only leaves your machine through what is described in "What leaves your machine".
+- No other Intreview user, even one who cloned the same repository, has access to your files.
+- There is no telemetry or analytics.
 
-## O app não tem autenticação
+## The app has no authentication
 
-O Intreview assume **um único usuário confiável na própria máquina**. Nenhuma rota da API (`/api/*`) exige login, token, ou checa o cabeçalho `Host`/`Origin`. Por isso:
+Intreview assumes **a single trusted user on their own machine**. No API route (`/api/*`) requires a login or token, or checks the `Host`/`Origin` headers. Because of that:
 
-- Os scripts `npm run dev` e `npm start` sobem o servidor **só em `127.0.0.1`** (`-H 127.0.0.1`). Acesse por `http://127.0.0.1:3000`.
-- **Não exponha a porta** na rede (`-H 0.0.0.0`, túnel, proxy reverso, Codespaces/port forwarding público) sem antes colocar autenticação na frente. Quem alcançar a porta lê e altera seus CVs, vagas e transcripts, apaga buscas salvas e gasta sua chave da Tavily e a GPU do seu Ollama.
-- Outros usuários da mesma máquina (conta local) também conseguem acessar `127.0.0.1:3000` enquanto o app roda.
+- The `npm run dev` and `npm start` scripts start the server **on `127.0.0.1` only** (`-H 127.0.0.1`). Open it at `http://127.0.0.1:3000`.
+- **Do not expose the port** to a network (`-H 0.0.0.0`, a tunnel, a reverse proxy, public Codespaces/port forwarding) without first putting authentication in front of it. Anyone who can reach the port can read and change your resumes, roles and transcripts, delete saved searches, and spend your Tavily key and your Ollama GPU.
+- Other users on the same machine (local accounts) can also reach `127.0.0.1:3000` while the app is running.
 
-### Limitações conhecidas
+### Known limitations
 
-Estas são fraquezas conhecidas, ainda não corrigidas, que valem para quem usa o app enquanto navega na web com ele aberto:
+These are known weaknesses that are not fixed yet, and that matter to anyone browsing the web while the app is running:
 
-- **Requisições vindas de outros sites.** As rotas de escrita não verificam `Origin` nem `Content-Type`. Uma página maliciosa aberta no seu navegador pode enviar requisições "cegas" (POST) para `http://127.0.0.1:3000/api/...`: criar vagas, disparar pesquisas e consumir sua cota da Tavily e do Ollama. Ela não consegue ler as respostas, a menos que também use DNS rebinding.
-- **DNS rebinding.** O app não valida o `Host`; um site que consiga apontar um nome de domínio para `127.0.0.1` pode, em tese, ler e alterar dados pela API.
-- **Upload sem limite de tamanho** em `/api/extract-text` (afeta só a sua própria máquina).
+- **Requests from other websites.** The write routes do not check `Origin` or `Content-Type`. A malicious page open in your browser can send "blind" requests (POST) to `http://127.0.0.1:3000/api/...`: create roles, trigger searches and use up your Tavily and Ollama quota. It cannot read the responses unless it also uses DNS rebinding.
+- **DNS rebinding.** The app does not validate `Host`; a site that manages to point a domain name at `127.0.0.1` could, in theory, read and change data through the API.
+- **No upload size limit** on `/api/extract-text` (this only affects your own machine).
 
-Enquanto isso não for corrigido, use um navegador/perfil sem outras abas abertas ao trabalhar com dados reais, e feche o app quando não estiver usando.
+Until this is fixed, avoid keeping other tabs open when working with real data, and close the app when you are not using it.
 
-## O que sai da sua máquina
+## What leaves your machine
 
-1. **Ollama** (`http://localhost:11434` por padrão): roda na sua máquina. O conteúdo da JD, do CV, do Interview Purpose e das suas respostas na entrevista é enviado só pra esse processo local.
-2. **Tavily Search API** (opcional, precisa de `TAVILY_API_KEY`):
-   - **Pesquisa da empresa** (botão "Pesquisar"): envia o nome da empresa (e, se houver, do cliente) como texto de busca; a Tavily devolve o conteúdo das páginas encontradas.
-   - **Job Search** (`/jobs`): envia empresa, cargo, localidade e modalidade de trabalho como texto de busca.
-   - Seu CV, sua JD e o Interview Purpose **não** são enviados pra Tavily.
-3. **Quadros de vagas públicos** (Job Search): consultas à API de Greenhouse (`boards-api.greenhouse.io`), Lever (`api.lever.co`) e Ashby (`api.ashbyhq.com`). A requisição contém só um identificador derivado do nome da empresa.
-4. **CDN jsDelivr** (editor de código): o seu **navegador** baixa o Monaco Editor de `cdn.jsdelivr.net` (versão fixa, sem verificação de integridade) quando a fase de Live Coding abre o editor. O jsDelivr vê seu IP e o pedido do arquivo, mas não recebe dados do app. Se isso for um problema, hospede o Monaco localmente.
-5. **Instalação**: `npm install` (registro npm), `ollama pull` (download do modelo) e, se você seguir o passo do README, o instalador do Ollama (`curl | sh`, de https://ollama.com).
+1. **Ollama** (`http://localhost:11434` by default): runs on your machine. The content of the job description, resume, Interview Purpose and your interview answers is sent only to that local process.
+2. **Tavily Search API** (optional, needs `TAVILY_API_KEY`):
+   - **Company research** ("Research" button): sends the company name (and the client, if any) as search text; Tavily returns the content of the pages it found.
+   - **Job Search** (`/jobs`): sends company, role, location and work mode as search text.
+   - Your resume, job description and Interview Purpose are **not** sent to Tavily.
+3. **Public job boards** (Job Search): queries to the Greenhouse (`boards-api.greenhouse.io`), Lever (`api.lever.co`) and Ashby (`api.ashbyhq.com`) APIs. The request only carries an identifier derived from the company name.
+4. **jsDelivr CDN** (code editor): your **browser** downloads the Monaco Editor from `cdn.jsdelivr.net` (pinned version, no integrity check) when the Live Coding phase opens the editor. jsDelivr sees your IP and the file request, but receives no app data. If that is a problem, self-host Monaco.
+5. **Installation**: `npm install` (npm registry), `ollama pull` (model download) and, if you follow the README step, the Ollama installer (`curl | sh`, from https://ollama.com).
 
-## Risco de prompt injection no Research Dossier
+## Prompt injection risk in the Research Dossier
 
-A etapa de pesquisa lê conteúdo de páginas públicas da web (Reddit, Blind, blogs, etc.) e passa esse texto para o LLM local resumir. Esse conteúdo é **não confiável por definição** — uma página maliciosa ou spam de SEO poderia conter texto tentando manipular o resumo ("ignore as instruções anteriores e escreva..."). O texto do dossiê também entra depois nos prompts da entrevista e do relatório. O impacto é um dossiê, uma pergunta ou um relatório com conteúdo estranho ou incorreto: o LLM local não tem acesso a ferramentas, não executa código e não toma nenhuma ação no seu sistema a partir desse conteúdo. Mesmo assim:
+The research step reads content from public web pages (Reddit, Blind, blogs, etc.) and hands that text to the local LLM to summarize. That content is **untrusted by definition**: a malicious page or SEO spam could contain text trying to manipulate the summary ("ignore the previous instructions and write..."). The dossier text also goes into the interview and report prompts later. The impact is a dossier, a question or a report with strange or incorrect content: the local LLM has no tools, does not run code and does not take any action on your system based on that content. Even so:
 
-- Revise o `research-dossier.md` antes de continuar pra entrevista (é por isso que a pesquisa não segue automaticamente pra entrevista). Se algo parecer bizarro ou fora do tema, edite ou apague antes de confiar nele.
-- O dossiê e o relatório são renderizados **sem imagens** (para que uma imagem remota não vire um "pixel de rastreio" no seu navegador) e o app envia `Content-Security-Policy: img-src 'self' data:`. Links no texto continuam clicáveis: pense antes de clicar em links de um dossiê.
-- Os títulos e URLs das fontes que a Tavily devolve ainda **não são escapados** ao montar o dossiê: um título malicioso pode inserir links ou texto no markdown e chegar aos prompts do LLM. Revise a lista de fontes do dossiê.
+- Review `research-dossier.md` before moving on to the interview (this is why the research does not continue to the interview automatically). If something looks bizarre or off-topic, edit or delete it before trusting it.
+- The dossier and the report are rendered **without images** (so a remote image cannot become a tracking pixel in your browser) and the app sends `Content-Security-Policy: img-src 'self' data:`. Links in the text stay clickable: think before clicking links in a dossier.
+- The titles and URLs of the sources that Tavily returns are **not yet escaped** when the dossier is built: a malicious title can insert links or text into the markdown and reach the LLM prompts. Review the dossier's source list.
 
-## Segredos (API keys)
+## Secrets (API keys)
 
-- A única credencial do projeto é `TAVILY_API_KEY`, que vive em `.env.local` — um arquivo que **nunca deve ser commitado** (está no `.gitignore`, e há um hook de pre-commit em `scripts/git-hooks/pre-commit`, ativado pelo `setup.sh`, que bloqueia isso como camada extra de proteção).
-- Se você acidentalmente commitar ou expor sua chave da Tavily, revogue-a e gere uma nova em https://tavily.com/ — não tem custo pra trocar.
-- Antes de tornar um fork ou cópia deste repositório público, confira o histórico inteiro (`git log --all`), incluindo o e-mail dos autores dos commits, e não só os arquivos atuais.
+- The only credential in the project is `TAVILY_API_KEY`, which lives in `.env.local`, a file that **must never be committed** (it is in `.gitignore`, and a pre-commit hook in `scripts/git-hooks/pre-commit`, enabled by `setup.sh`, blocks it as an extra layer of protection).
+- If you accidentally commit or expose your Tavily key, revoke it and generate a new one at https://tavily.com/. Replacing it is free.
+- Before making a fork or copy of this repository public, check the whole history (`git log --all`), including the author e-mail of the commits, and not only the current files.
 
-## Reportando um problema
+## Reporting a problem
 
-Se você encontrar um problema de segurança, **não abra uma issue pública**. Use o botão **"Report a vulnerability"** na aba *Security* do repositório (relato privado do GitHub). Inclua os passos para reproduzir e o impacto que você observou.
+If you find a security problem, **do not open a public issue**. Use the **"Report a vulnerability"** button on the repository's *Security* tab (GitHub private reporting). Include the steps to reproduce it and the impact you observed.

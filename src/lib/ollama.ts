@@ -6,9 +6,9 @@ const OLLAMA_MODEL = process.env.OLLAMA_MODEL ?? "gemma4:12b";
 const OLLAMA_NUM_CTX = Number(process.env.OLLAMA_NUM_CTX) || 8192;
 const OLLAMA_TIMEOUT_MS = Number(process.env.OLLAMA_TIMEOUT_MS) || 15 * 60 * 1000;
 
-// Chamadas não-streaming ficam sem cabeçalhos até o modelo terminar de gerar; o
-// padrão do fetch do Node (5 min) derrubava modelos lentos. O prazo total agora
-// é OLLAMA_TIMEOUT_MS, controlado pelo AbortSignal.
+// Non-streaming calls get no response headers until the model finishes generating;
+// Node's default fetch timeout (5 min) cut off slow models. The overall deadline is
+// now OLLAMA_TIMEOUT_MS, enforced by the AbortSignal.
 const dispatcher = new Agent({ headersTimeout: 0, bodyTimeout: 0 });
 
 let thinkSupported = true;
@@ -24,7 +24,7 @@ export interface ChatMessage {
 
 export async function ollamaChat(
   messages: ChatMessage[],
-  locale: Locale = "pt-BR"
+  locale: Locale = "en"
 ): Promise<string> {
   const request = (think: boolean) =>
     fetch(`${OLLAMA_HOST}/api/chat`, {

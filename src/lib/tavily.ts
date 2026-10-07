@@ -17,7 +17,7 @@ export async function tavilySearch(
   const apiKey = process.env.TAVILY_API_KEY;
   if (!apiKey) {
     throw new Error(
-      "TAVILY_API_KEY não configurada. Crie uma chave gratuita (sem cartão) em https://tavily.com/ e coloque em .env.local"
+      "TAVILY_API_KEY is not set. Create a free key (no card required) at https://tavily.com/ and put it in .env.local"
     );
   }
 

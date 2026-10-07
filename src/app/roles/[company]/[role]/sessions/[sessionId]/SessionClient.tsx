@@ -99,7 +99,6 @@ export default function SessionClient({
 
   const currentPhaseId = state.selectedPhases[state.currentPhaseIndex];
   const currentPhase = state.phases[currentPhaseId];
-  const phaseDef = phases.find((p) => p.id === currentPhaseId)!;
   const isLastPhase = state.currentPhaseIndex === state.selectedPhases.length - 1;
   const progressPct = Math.round(((state.currentPhaseIndex + (awaitingNextPhase || allPhasesDone ? 1 : 0.5)) / state.selectedPhases.length) * 100);
 

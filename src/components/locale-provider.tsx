@@ -25,6 +25,11 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     setMounted(true);
   }, []);
 
+  // Keep <html lang> in sync with the selected language (screen readers, hyphenation, translation).
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
+
   function setLocale(next: Locale) {
     setLocaleState(next);
     localStorage.setItem(STORAGE_KEY, next);
