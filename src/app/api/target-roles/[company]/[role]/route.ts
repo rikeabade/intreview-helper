@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getTargetRole, updateTargetRoleField, type EditableTargetRoleField } from "@/lib/targetRole";
+import {
+  deleteTargetRole,
+  getTargetRole,
+  updateTargetRoleField,
+  type EditableTargetRoleField,
+} from "@/lib/targetRole";
 
 const EDITABLE_FIELDS: EditableTargetRoleField[] = [
   "jobDescription",
@@ -18,6 +23,18 @@ export async function GET(
     return NextResponse.json({ error: "Target Role não encontrado" }, { status: 404 });
   }
   return NextResponse.json(detail);
+}
+
+export async function DELETE(
+  _req: Request,
+  { params }: { params: Promise<{ company: string; role: string }> }
+) {
+  const { company, role } = await params;
+  const deleted = await deleteTargetRole(company, role);
+  if (!deleted) {
+    return NextResponse.json({ error: "Target Role não encontrado" }, { status: 404 });
+  }
+  return NextResponse.json({ ok: true });
 }
 
 export async function PATCH(

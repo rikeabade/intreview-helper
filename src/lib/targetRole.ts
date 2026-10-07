@@ -143,6 +143,27 @@ export async function getTargetRole(
   return { meta, jobDescription, cv, researchDossier, interviewPurpose };
 }
 
+// Apaga a vaga inteira (meta, JD, CV, dossiê, purpose e todas as sessões). Só age em
+// pastas que existem como vaga (têm meta.json) e cujos slugs passam na validação.
+export async function deleteTargetRole(
+  companySlug: string,
+  roleSlug: string
+): Promise<boolean> {
+  if (!isValidSlug(companySlug) || !isValidSlug(roleSlug)) return false;
+  const dir = targetRoleDir(companySlug, roleSlug);
+  if (!(await exists(path.join(dir, META_FILE)))) return false;
+
+  await fs.rm(dir, { recursive: true, force: true });
+
+  // Se a empresa ficou sem nenhuma vaga, remove a pasta vazia (rmdir só apaga pasta vazia).
+  try {
+    await fs.rmdir(path.dirname(dir));
+  } catch {
+    // ainda há outras vagas dessa empresa
+  }
+  return true;
+}
+
 export async function writeResearchDossier(
   companySlug: string,
   roleSlug: string,
