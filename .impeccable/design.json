@@ -1,0 +1,450 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T00:28:03.563553+00:00",
+  "title": "Design System: Intreview",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Study-Lamp Indigo",
+        "canonical": "oklch(0.511 0.262 276.966)",
+        "tonalRamp": [
+          "oklch(0.15 0.262 276.966)",
+          "oklch(0.27 0.262 276.966)",
+          "oklch(0.39 0.262 276.966)",
+          "oklch(0.51 0.262 276.966)",
+          "oklch(0.63 0.262 276.966)",
+          "oklch(0.75 0.262 276.966)",
+          "oklch(0.87 0.262 276.966)",
+          "oklch(0.95 0.262 276.966)"
+        ]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Study-Lamp Indigo (dark theme)",
+        "canonical": "oklch(0.585 0.233 277.117)",
+        "tonalRamp": [
+          "oklch(0.15 0.233 277.117)",
+          "oklch(0.27 0.233 277.117)",
+          "oklch(0.39 0.233 277.117)",
+          "oklch(0.51 0.233 277.117)",
+          "oklch(0.63 0.233 277.117)",
+          "oklch(0.75 0.233 277.117)",
+          "oklch(0.87 0.233 277.117)",
+          "oklch(0.95 0.233 277.117)"
+        ]
+      },
+      "primary-foreground": {
+        "role": "neutral",
+        "displayName": "Lamp Text",
+        "canonical": "oklch(0.985 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "background-dark": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "oklch(0.145 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Ink Text",
+        "canonical": "oklch(0.145 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "foreground-dark": {
+        "role": "neutral",
+        "displayName": "Paper Text",
+        "canonical": "oklch(0.985 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card Surface",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "card-dark": {
+        "role": "neutral",
+        "displayName": "Card Surface (dark)",
+        "canonical": "oklch(0.205 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Quiet Gray",
+        "canonical": "oklch(0.97 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Quiet Gray (dark)",
+        "canonical": "oklch(0.269 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Secondary Text",
+        "canonical": "oklch(0.556 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "muted-foreground-dark": {
+        "role": "neutral",
+        "displayName": "Secondary Text (dark)",
+        "canonical": "oklch(0.708 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "accent": {
+        "role": "tertiary",
+        "displayName": "Indigo Wash",
+        "canonical": "oklch(0.94 0.03 276.966)",
+        "tonalRamp": [
+          "oklch(0.15 0.03 276.966)",
+          "oklch(0.27 0.03 276.966)",
+          "oklch(0.39 0.03 276.966)",
+          "oklch(0.51 0.03 276.966)",
+          "oklch(0.63 0.03 276.966)",
+          "oklch(0.75 0.03 276.966)",
+          "oklch(0.87 0.03 276.966)",
+          "oklch(0.95 0.03 276.966)"
+        ]
+      },
+      "accent-dark": {
+        "role": "tertiary",
+        "displayName": "Indigo Wash (dark)",
+        "canonical": "oklch(0.3 0.08 277.117)",
+        "tonalRamp": [
+          "oklch(0.15 0.08 277.117)",
+          "oklch(0.27 0.08 277.117)",
+          "oklch(0.39 0.08 277.117)",
+          "oklch(0.51 0.08 277.117)",
+          "oklch(0.63 0.08 277.117)",
+          "oklch(0.75 0.08 277.117)",
+          "oklch(0.87 0.08 277.117)",
+          "oklch(0.95 0.08 277.117)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.922 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "destructive": {
+        "role": "neutral",
+        "displayName": "Alert Red",
+        "canonical": "oklch(0.577 0.245 27.325)",
+        "tonalRamp": [
+          "oklch(0.15 0.245 27.325)",
+          "oklch(0.27 0.245 27.325)",
+          "oklch(0.39 0.245 27.325)",
+          "oklch(0.51 0.245 27.325)",
+          "oklch(0.63 0.245 27.325)",
+          "oklch(0.75 0.245 27.325)",
+          "oklch(0.87 0.245 27.325)",
+          "oklch(0.95 0.245 27.325)"
+        ]
+      },
+      "destructive-dark": {
+        "role": "neutral",
+        "displayName": "Alert Red (dark)",
+        "canonical": "oklch(0.704 0.191 22.216)",
+        "tonalRamp": [
+          "oklch(0.15 0.191 22.216)",
+          "oklch(0.27 0.191 22.216)",
+          "oklch(0.39 0.191 22.216)",
+          "oklch(0.51 0.191 22.216)",
+          "oklch(0.63 0.191 22.216)",
+          "oklch(0.75 0.191 22.216)",
+          "oklch(0.87 0.191 22.216)",
+          "oklch(0.95 0.191 22.216)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles on home and job search."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles on forms and role detail."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text and controls."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Badges, hints, timestamps."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 1px 2px rgb(0 0 0 / 0.03)",
+        "purpose": "Resting card, with a 1px foreground/10 ring."
+      },
+      {
+        "name": "card-hover-lift",
+        "value": "0 10px 15px -3px oklch(0.511 0.262 276.966 / 0.05)",
+        "purpose": "Role cards on hover, with a 2px upward translate."
+      },
+      {
+        "name": "listing-hover",
+        "value": "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+        "purpose": "Job listing cards on hover."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-strong",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Default curve for entrances, press and hover."
+      },
+      {
+        "name": "rise-in",
+        "value": "360ms, translateY(10px) to 0 with opacity, stagger 50ms capped at 350ms",
+        "purpose": "Page and list entrances; fade-only under reduced motion."
+      },
+      {
+        "name": "press",
+        "value": "150ms, scale 0.97",
+        "purpose": "Button press feedback."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action on a screen: create, search, start.",
+      "html": "<button class=\"ds-btn-primary\">Create role</button>",
+      "css": ".ds-btn-primary{font:500 14px/1 Geist,ui-sans-serif,system-ui,sans-serif;height:32px;padding:0 10px;border-radius:10px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:background-color .15s cubic-bezier(.23,1,.32,1),transform .15s cubic-bezier(.23,1,.32,1);border:1px solid transparent;background:oklch(0.511 0.262 276.966);color:oklch(0.985 0 0);}.ds-btn-primary:hover{background:oklch(0.511 0.262 276.966 / .8);}.ds-btn-primary:active{transform:scale(.97);}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 3px oklch(0.511 0.262 276.966 / .5);}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action: edit, open listing, cancel.",
+      "html": "<button class=\"ds-btn-outline\">Edit</button>",
+      "css": ".ds-btn-outline{font:500 14px/1 Geist,ui-sans-serif,system-ui,sans-serif;height:32px;padding:0 10px;border-radius:10px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:background-color .15s cubic-bezier(.23,1,.32,1),transform .15s cubic-bezier(.23,1,.32,1);border:1px solid oklch(0.922 0 0);background:oklch(1 0 0);color:oklch(0.145 0 0);}.ds-btn-outline:hover{background:oklch(0.97 0 0);}.ds-btn-outline:active{transform:scale(.97);}.ds-btn-outline:focus-visible{outline:none;box-shadow:0 0 0 3px oklch(0.511 0.262 276.966 / .5);}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Single-line field for company, role and filters.",
+      "html": "<input class=\"ds-input\" placeholder=\"Ex: Stripe\" />",
+      "css": ".ds-input{font:400 14px/1.5 Geist,ui-sans-serif,system-ui,sans-serif;height:32px;width:220px;padding:0 10px;border-radius:10px;border:1px solid oklch(0.922 0 0);background:transparent;color:oklch(0.145 0 0);outline:none;transition:border-color .15s,box-shadow .15s;}.ds-input::placeholder{color:oklch(0.556 0 0);}.ds-input:focus-visible{border-color:oklch(0.511 0.262 276.966 / .5);box-shadow:0 0 0 3px oklch(0.511 0.262 276.966 / .5);}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Container for role summaries, job listings and form sections.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-title\">DevOps Engineer</div><div class=\"ds-card-sub\">Acme Inc.</div></div>",
+      "css": ".ds-card{width:260px;padding:16px;border-radius:14px;background:oklch(1 0 0);box-shadow:0 0 0 1px oklch(0.145 0 0 / .1),0 1px 2px rgb(0 0 0 / .03);transition:box-shadow .2s cubic-bezier(.23,1,.32,1),transform .2s cubic-bezier(.23,1,.32,1);font-family:Geist,ui-sans-serif,system-ui,sans-serif;}.ds-card:hover{transform:translateY(-2px);box-shadow:0 0 0 1px oklch(0.511 0.262 276.966 / .4),0 10px 15px -3px oklch(0.511 0.262 276.966 / .05);}.ds-card-title{font-weight:500;font-size:16px;line-height:1.375;color:oklch(0.145 0 0);}.ds-card-sub{margin-top:2px;font-size:14px;color:oklch(0.556 0 0);}"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Category and work-mode label.",
+      "html": "<span class=\"ds-badge\">Remote</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;height:20px;padding:2px 8px;border-radius:9999px;background:oklch(0.97 0 0);color:oklch(0.205 0 0);font:500 12px/1 Geist,ui-sans-serif,system-ui,sans-serif;}"
+    },
+    {
+      "name": "Interviewer Bubble",
+      "kind": "custom",
+      "description": "Signature chat message from the AI interviewer.",
+      "html": "<div class=\"ds-chat\"><span class=\"ds-avatar\">&#10022;</span><div class=\"ds-bubble\">Tell me about a time you debugged a production incident.</div></div>",
+      "css": ".ds-chat{display:flex;gap:12px;align-items:flex-start;font-family:Geist,ui-sans-serif,system-ui,sans-serif;}.ds-avatar{width:32px;height:32px;flex:none;border-radius:9999px;background:oklch(0.511 0.262 276.966);color:oklch(0.985 0 0);display:grid;place-items:center;font-size:14px;}.ds-bubble{max-width:320px;padding:10px 16px;border-radius:16px 16px 16px 4px;background:oklch(0.97 0 0);color:oklch(0.145 0 0);font-size:14px;line-height:1.5;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Friendly Study Room",
+    "overview": "Intreview is a calm place to concentrate before something stressful. Surfaces are soft and mostly neutral, one indigo accent marks the thing that matters on a screen, and a faint glow in the background keeps the page from feeling like a blank form. Motion exists to acknowledge and orient, never to perform. Light and dark themes are both first-class, and every screen is designed to read in PT-BR and English.",
+    "keyCharacteristics": [
+      "One accent (indigo) on a near-neutral gray system; neutrals carry no hue.",
+      "Soft cards with a hairline ring and a barely-there shadow; depth comes from tone and ring, not heavy shadow.",
+      "Calm, precise controls: moderate radius, thin borders, fast and quiet feedback.",
+      "A fixed, decorative ambient background behind all pages.",
+      "Motion is short, ease-out, and respects reduced-motion."
+    ],
+    "rules": [
+      {
+        "name": "The Friendly Palette Rule",
+        "body": "Indigo owns every primary action and the candidate's voice. Violet, pink, amber, emerald and sky are for company tiles, feature chips, work-mode badges, the aurora and celebrations only, never for buttons or links.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted-Wash Rule",
+        "body": "Selection and emphasis use the primary at low alpha or the Indigo Wash fill, never a new color.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Do not add a second sans or serif; use weight and size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Balanced Heading Rule",
+        "body": "Headings use text-wrap: balance.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Until-Touched Rule",
+        "body": "Elevation appears as a response to hover, never as decoration at rest.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use primary indigo for the single most important action or state on a screen.",
+      "Do switch states with short ease-out transitions (150-360ms) and a fade-only path for reduced motion.",
+      "Do keep copy in the candidate's language and run every new string through both PT-BR and EN.",
+      "Do keep working surfaces (role detail, job search) editable in place with Edit / Save / Cancel.",
+      "Do show honest states: \"Unidentified\" work mode, no sources found, search failed."
+    ],
+    "donts": [
+      "Don't use transition: all, bounce or elastic easing, or entrance animations that make users wait on every page.",
+      "Don't put gradient text, heavy offset shadows, or decorative glass on content surfaces.",
+      "Don't nest cards inside cards; use a divider or muted panel instead.",
+      "Don't add a second typeface.",
+      "Don't use the supporting hues on buttons or links, or add colored side borders on cards and alerts."
+    ]
+  }
+}
