@@ -39,5 +39,8 @@
   "overrides": {
     "dompurify": "^3.4.16",
     "postcss": "^8.5.28"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
   }
 }
