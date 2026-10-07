@@ -37,6 +37,13 @@ export const dictionaries = {
       yourRoles: "Suas vagas",
       rolesCount: "{count} em preparação",
       practice: "Praticar",
+      deleteRole: "Apagar vaga",
+      deleteTitle: "Apagar esta vaga?",
+      deleteBody:
+        "Isso remove para sempre a job description, o CV, o dossiê e todas as entrevistas desta vaga. Não dá para desfazer.",
+      deleteConfirm: "Apagar",
+      deleting: "Apagando...",
+      deleteFailed: "Não consegui apagar. Tente de novo.",
       sampleQuestions: [
         "Me conte sobre você e a sua trajetória.",
         "Descreva um incidente em produção que você ajudou a resolver.",
@@ -253,6 +260,13 @@ export const dictionaries = {
       yourRoles: "Your roles",
       rolesCount: "{count} in preparation",
       practice: "Practice",
+      deleteRole: "Delete role",
+      deleteTitle: "Delete this role?",
+      deleteBody:
+        "This permanently removes the job description, resume, dossier and every interview for this role. It can't be undone.",
+      deleteConfirm: "Delete",
+      deleting: "Deleting...",
+      deleteFailed: "Couldn't delete. Try again.",
       sampleQuestions: [
         "Tell me about yourself and your journey.",
         "Describe a production incident you helped resolve.",
