@@ -1,3 +1,0 @@
-# File-based persistence, no database
-
-This is a single-user, local-only tool for one Candidate. We considered SQLite for storing Target Roles, Research Dossiers, Transcripts, and Reports, but chose plain Markdown/text files on disk instead (one folder per Company/Target Role, one file per Interview Session). The Candidate wants to browse and hand-edit this data directly — especially the Research Dossier, which needs manual pruning of unreliable sources before an Interview Session starts — and a dedicated history UI adds no value at this scale. A database can be introduced later if querying across sessions ever becomes necessary.

@@ -2,8 +2,7 @@
 
 Simulador de entrevistas técnicas, **100% local**, personalizado por vaga: você informa a empresa, a Job Description e seu CV, e o Intreview pesquisa como aquela empresa costuma conduzir entrevistas antes de simular uma com você — com perguntas adaptativas, feedback e um relatório final.
 
-O app e o LLM rodam na sua máquina; as únicas chamadas à internet são as buscas opcionais (pesquisa da empresa e Job Search) e o carregamento do editor de código a partir de uma CDN (veja [SECURITY.md](./SECURITY.md)). Veja [GLOSSARY.md](./GLOSSARY.md) para o vocabulário do domínio e [docs/adr/](./docs/adr/) para decisões arquiteturais.
-
+O app e o LLM rodam na sua máquina; as únicas chamadas à internet são as buscas opcionais (pesquisa da empresa e Job Search) e o carregamento do editor de código a partir de uma CDN (veja [SECURITY.md](./SECURITY.md)).
 ## Setup rápido
 
 Se você está em Linux ou macOS, depois de clonar o repositório basta:

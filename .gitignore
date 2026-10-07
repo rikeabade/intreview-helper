@@ -46,3 +46,10 @@ data/
 
 # config local de ferramentas de dev (não faz parte do produto)
 .claude/
+
+# documentos de trabalho gerados pelos skills de desenvolvimento (ficam só na máquina de quem desenvolve)
+/GLOSSARY.md
+/PRODUCT.md
+/DESIGN.md
+/.impeccable/
+/docs/adr/
