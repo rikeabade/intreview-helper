@@ -27,7 +27,7 @@ export default function HomeClient({ roles: initialRoles }: { roles: TargetRoleM
   const [deleteError, setDeleteError] = useState<string | null>(null);
   const cancelRef = useRef<HTMLButtonElement>(null);
 
-  // Foca em "Cancelar" ao abrir a confirmação (a ação segura é a padrão) e fecha com Esc.
+  // Focus "Cancel" when the confirmation opens (the safe action is the default) and close on Esc.
   useEffect(() => {
     if (!confirming) return;
     cancelRef.current?.focus();

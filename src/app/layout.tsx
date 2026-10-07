@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Intreview",
-  description: "Simulador de entrevistas técnicas, local e personalizado por vaga",
+  description: "A local technical-interview simulator, tailored to each role",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="pt-BR"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >

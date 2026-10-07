@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   const file = formData.get("file");
 
   if (!(file instanceof File)) {
-    return NextResponse.json({ error: "Nenhum arquivo enviado" }, { status: 400 });
+    return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
   }
 
   const buffer = Buffer.from(await file.arrayBuffer());
@@ -17,9 +17,9 @@ export async function POST(req: NextRequest) {
       const result = await parser.getText();
       return NextResponse.json({ text: result.text });
     } catch (err) {
-      console.error("Falha ao extrair texto do PDF:", err);
+      console.error("Failed to extract text from the PDF:", err);
       return NextResponse.json(
-        { error: "Não consegui ler esse PDF. Tente colar o texto diretamente." },
+        { error: "Could not read that PDF. Try pasting the text directly." },
         { status: 500 }
       );
     }

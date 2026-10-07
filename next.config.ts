@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // pdf-parse (via pdfjs-dist) quebra quando o webpack tenta empacotá-lo para
-  // o runtime de servidor — deixamos o Node carregá-lo nativamente em runtime.
+  // pdf-parse (via pdfjs-dist) breaks when webpack tries to bundle it for the
+  // server runtime, so we let Node load it natively at runtime.
   serverExternalPackages: ["pdf-parse", "pdfjs-dist", "undici"],
   // Defense in depth: markdown built from untrusted web content must not be able
   // to make the browser fetch remote images (beacon/exfiltration channel).

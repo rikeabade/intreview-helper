@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (nunca commitar segredos reais; o template .env.local.example é a exceção)
+# env files (never commit real secrets; the .env.local.example template is the exception)
 .env*
 !.env.local.example
 
@@ -41,15 +41,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# dados pessoais do usuário (CV, JD, transcripts de entrevista) — nunca commitar
+# the user's personal data (resumes, job descriptions, interview transcripts): never commit
 data/
-
-# config local de ferramentas de dev (não faz parte do produto)
-.claude/
-
-# documentos de trabalho gerados pelos skills de desenvolvimento (ficam só na máquina de quem desenvolve)
-/GLOSSARY.md
-/PRODUCT.md
-/DESIGN.md
-/.impeccable/
-/docs/adr/
